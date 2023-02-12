@@ -1,34 +1,33 @@
-// REST: valores passados com vírgula => array
-
-function sum( ...numbers) {
-    let total = 0;
-    for (let i = 0; i < numbers.length; i++) {
-        total = total + numbers[i]
-    }
-    return total
-}
-
-const result1 = sum(1, 2, 3, 4)
-console.log(result1)
-
-const result2 = Math.max(2, 5, 9, 3)
-console.log(result2)
-
-// SPREAD: array => valores separados por vírgula
-
-const mynumbers = [2, 3, 10, 5]
-const result3 = Math.max( ...mynumbers)
-
-console.log(result3)
-
-// SPREAD: objeto => valores separados por vírgula
-
-const item = {
-    description: "Computador",
+const p1 = {
+    name: "Computador",
     price: 3000.0,
-    quantity: 1
+    quantity: 2
 }
 
-const cloneItem = { ...item }
+const Product = function(name, price, quantity) {
+    this.name = name
+    this.price = price
+    this.quantity = quantity
+}
 
-const cloneItemPlus = { ...item, weight: 10 }
+Product.prototype.total = function() {
+    return this.price * this.quantity
+}
+
+Product.prototype.add = function(amount) {
+    this.quantity += amount
+}
+
+Product.prototype.remove = function(amount) {
+    if (this.quantity >= amount) {
+        this.quantity -= amount
+    }
+}
+
+Product.prototype.label = function() {
+    return "Dados: " + this.name + ", " + this.price.toFixed(2)
+}
+
+let p2 = new Product("Monitor", 800.0, 10)
+
+let p3 = new Product("Mouse", 50.0, 4)
