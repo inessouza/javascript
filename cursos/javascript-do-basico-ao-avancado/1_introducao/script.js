@@ -1,1 +1,1 @@
-console.log("Hello World do script.js")
+console.log("Vinculando arquivo JS ao HTML.");

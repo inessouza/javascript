@@ -1,0 +1,1 @@
+console.log(22 * "Não é um número")
