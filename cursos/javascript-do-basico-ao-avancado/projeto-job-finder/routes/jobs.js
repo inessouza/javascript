@@ -12,7 +12,6 @@ router.post('/add', (req, res) => {
     let { title, salary, company, email, new_job } = req.body
     Job.create({
         title,
-        description,
         salary,
         company,
         email,
